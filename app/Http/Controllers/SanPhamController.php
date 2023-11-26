@@ -47,7 +47,7 @@ class SanPhamController extends Controller
         $sanpham=SanPham::find($id);
         if(empty($sanpham))
         {
-            return "Sản phẩm không tồn tại";
+            return redirect()->route('sanpham.danh-sach')->with('thong_bao', 'SẢN PHẨM KHÔNG TỒN TẠI');
         }
         $sanpham->delete();
         return redirect()->route('sanpham.danh-sach')->with('thong_bao','XÓA SẢN PHẨM THÀNH CÔNG');
@@ -59,15 +59,15 @@ class SanPhamController extends Controller
         $dsSize=Size::all();
         $sanpham = SanPham::find($id);
         if (empty( $sanpham)) {
-            return "San pham khong ton tai";
+            return redirect()->route('sanpham.danh-sach')->with('thong_bao', 'SẢN PHẨM KHÔNG TỒN TẠI');
         }
         return view('products.sua', compact('sanpham','dsDanhMuc', 'dsMauSac', 'dsSize'));
     }
-    public function xuliSua(Request $re,$id)
+    public function xulySua(Request $re,$id)
     {
         $sanpham = SanPham::find($id);
         if (empty( $sanpham)) {
-            return "San pham khong ton tai";
+            return redirect()->route('sanpham.danh-sach')->with('thong_bao', 'SẢN PHẨM KHÔNG TỒN TẠI');
         }      
         $sanpham->ten=$re->ten;
         $sanpham->danh_muc_id=$re->danh_muc_id;
@@ -86,5 +86,16 @@ class SanPhamController extends Controller
             $pic->save();
         }
         return redirect()->route('sanpham.danh-sach')->with('thong_bao', 'SỬA SẢN PHẨM THÀNH CÔNG');
+    }
+    public function chitiet($id){
+        $dsDanhMuc=DanhMuc::all();
+        $dsMauSac=MauSac::all();
+        $dsSize=Size::all();
+        $dsHinhanh=HinhAnhSanPham::all();
+        $sanpham = SanPham::find($id);
+        if (empty( $sanpham)) {
+            return redirect()->route('sanpham.danh-sach')->with('thong_bao', 'SẢN PHẨM KHÔNG TỒN TẠI');
+        }
+        return view('products.chi-tiet', compact('sanpham','dsDanhMuc', 'dsMauSac', 'dsSize', 'dsHinhanh'));
     }
 }

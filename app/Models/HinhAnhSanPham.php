@@ -9,4 +9,7 @@ class HinhAnhSanPham extends Model
 {
     use HasFactory;
     protected $table='hinh_anh_san_pham';
+    public function sanpham(){
+        return $this->beLongsTo(SanPham::class,'san_pham_id');
+    }
 }

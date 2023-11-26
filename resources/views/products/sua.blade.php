@@ -13,7 +13,7 @@
         </div>
 </div>
 
-<form method="POST" action="" enctype="multipart/form-data">
+<form method="POST" action="{{ route('sanpham.xl.sua',['id'=>$sanpham->id])}}" enctype="multipart/form-data">
     @csrf
     <div class="col-sm-5">
         <label for="TEN_SANPHAM" class="form-label" style="margin: 10px">Tên sản phẩm</label>

@@ -41,6 +41,7 @@ Route::post('san-pham/them-moi',[SanPhamController::class,'xuLyThem'])->name('sa
 Route::get('san-pham/xoa/{id}',[SanPhamController::class,'xuLyXoa'])->name('sanpham.xl.xoa');
 Route::get('san-pham/sua/{id}',[SanPhamController::class,'sua'])->name('sanpham.sua');//->middleware('check.admin.login');
 Route::post('san-pham/sua/{id}',[SanPhamController::class,'xuLySua'])->name('sanpham.xl.sua');
+Route::get('san-pham/chi-tiet/{id}',[SanPhamController::class,'chitiet'])->name('sanpham.chitiet');
 // San Pham/ Size
 Route::get('san-pham/size/them-moi',[ThuocTinhSanPhamController::class,'themSize'])->name('size.them-moi');//->middleware('check.admin.login');
 Route::post('san-pham/size/them-moi',[ThuocTinhSanPhamController::class,'xuLyThemSize'])->name('size.xl-them-moi');

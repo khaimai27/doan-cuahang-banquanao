@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('hinh_anh_nguoi_dung', function (Blueprint $table) {
             $table->id();
             $table->string('url');
-            $table->integer('nguoi_dung_id');
+            $table->unsignedBigInteger('nguoi_dung_id');
             $table->timestamps();
+        });
+        Schema::table('hinh_anh_nguoi_dung', function (Blueprint $table) {
+            $table->foreign('nguoi_dung_id')->references('id')->on('nguoi_dung')->onDelete('cascade');
         });
     }
 
@@ -24,6 +27,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('hinh_anh_nguoi_dung', function (Blueprint $table) {
+            $table->dropForeign(['nguoi_dung_id']);
+            $table->dropColumn('nguoi_dung_id');
+        });
+
         Schema::dropIfExists('hinh_anh_nguoi_dung');
     }
 };
