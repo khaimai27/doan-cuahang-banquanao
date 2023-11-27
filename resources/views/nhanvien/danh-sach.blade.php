@@ -1,51 +1,73 @@
+
 @extends('layout')
+@section('page-js')
+    @if(session('thong_bao'))
+        <script>
+             swal.fire("{{session('thong_bao')}}");
+        </script>
+    @endif
+@endsection
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Danh Sách Nhân Viên</h1>
+        <h1 class="h2">DANH SÁCH NHÂN VIÊN</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class=
+            "btn-group me-2">
+            <a href="{{ route('nhanvien.them-moi')}}" class="btn btn-sm btn-outline-secondary">Thêm mới</a>
+            </div>
+          </button>
+        </div>
 </div>
-@if(session('thong-bao'))
-  <script>
-    Swal.fire("{{session('thong-bao')}}")
-  </script>
-@endif
-@if(session('message'))
-  <script>
-    Swal.fire("{{session('message')}}")
-  </script>
-@endif
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
+<div class="table-responsive">
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th scope="col">Mã nhân viên</th>
+            <th scope="col">Tên nhân viên</th>
+            <th scope="col">Số điện thoại</th>
+            <th scope="col">Địa chỉ</th>
+            <th scope="col">Email</th>
+            <th scope="col">Chức năng</th>
 
-        <th><p style="color:white;padding-top:9px;font-size:20px">Tên Nhân Viên</p></th>
-
-        <th><p style="color:white;padding-top:9px;font-size:20px">Account</p></th>
-        <th><p style="color:white;padding-top:9px;font-size:20px">Password</p></th>
-        <th><p style="color:white;padding-top:9px;font-size:20px">Số điện thoại</p></th>
-        <th><p style="color:white;padding-top:9px;font-size:20px">Địa chỉ</p></th>
-        <th><p style="color:white;padding-top:9px;font-size:20px">Email</p></th>
-        <th><p style="color:white;padding-top:9px;font-size:20px">Edit</p></th>
-    </tr>
-</thead>
-    @foreach($nhanvien as $nv)
-    <tr>
+        </tr>
+    </thead>
+    <tbody>
+        @forelse($nhanvien as $nv)
+        <tr>
+        <th>{{$nv->id}}</th>
         <th>{{$nv->ten}}</th>
-        <th>{{$nv->account}}</th>
-        <th>{{$nv->password}}</th>
         <th>{{$nv->so_dien_thoai}}</th>
         <th>{{$nv->dia_chi}}</th>
         <th>{{$nv->email}}</th>
-        <th><a href="{{route('nhanvien.xoa',['id'=>$nv->id])}}">Xóa</a> | <a
-                href="{{ route('nhanvien.cap-nhat',['id'=>$nv->id]) }}">Sửa</a></th>
-    </tr>
-    @endforeach
-
+            <td>
+            <a href="{{ route('nhanvien.chitiet',['id'=>$nv->id])}}" class="btn btn-sm btn-outline-secondary">Chi tiết</a>  <a href="{{ route('nhanvien.cap-nhat',['id'=>$nv->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a href="{{ route('nhanvien.xoa',['id'=>$nv->id])}}" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('nhanvien.xoa',['id'=>$nv->id])}}', event)">Xóa</a>
+            </td>
+        </tr>
+        @empty
+        <tr>
+            <td colspan="6">Không có nhân viên nào.</td>
+        </tr>
+        @endforelse
+    </tbody>
 </table>
-
-    <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group me-2">
-            <a href="{{ route('nhanvien.them-moi')}}" type="button" class="btn btn-sm btn-outline-secondary" >Thêm mới</a>
-        </div>
-    </div>
+<script>
+    function confirmDelete(deleteUrl, event) {
+        Swal.fire({
+            title: 'Bạn có chắc chắn muốn xóa?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Đồng ý',
+            cancelButtonText: 'Hủy bỏ'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = deleteUrl;
+            } else {
+                event.preventDefault();
+            }
+        });
+    }
+</script>
 
 @endsection

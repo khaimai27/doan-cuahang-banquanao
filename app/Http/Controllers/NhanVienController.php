@@ -4,8 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\NhanVien;
+use Illuminate\Support\Facades\Auth;
 class NhanVienController extends Controller
 {
+    public function dangNhap()
+    {
+        return view('dang-nhap');
+    }
+    public function dangNhapHandler(Request $request)
+    {
+
+        if(Auth::attempt(['account'=>$request->account,'password'=>$request->password]))
+        {
+            return view('layout');
+        }
+        return "Đăng nhập thất bại";
+
+    }
+    public function thongTinNguoiDung()
+    {
+        if(Auth::check())
+        {
+            $user =Auth::user();
+            return $user;
+
+        }
+        return "Nguoi dung chua dang nhap";
+    }
+    public function dangXuat()
+    {
+        Auth::logout();
+        return view('dang-nhap');
+    }
     public function danhSach()
     {
         $nhanvien = NhanVien::all();
@@ -56,5 +86,10 @@ class NhanVienController extends Controller
         }
         $nhanvien->delete();
         return redirect()->route('nhanvien.danh-sach')->with('thong-bao', 'Xóa thành công');
+    }
+    public function chitiet($id)
+    {
+        $nhanvien = NhanVien::find($id);
+        return view('nhanvien.chi-tiet',compact('nhanvien'));
     }
 }

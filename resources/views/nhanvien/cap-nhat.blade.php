@@ -1,42 +1,45 @@
+
 @extends('layout')
 @section('content')
+
+<link href="{{asset('bootstrap-5.2.3/css/bootstrap.min.css')}}" rel="stylesheet">
+
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Cập Nhật</h1>
+        <h1 class="h2">Chỉnh sửa thông tin tài khoản thành viên</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
+            <div class=
+            "btn-group me-2">
+            </div>
+          </button>
         </div>
 </div>
-<form method="POST" acction="">
-    @csrf
-    <table>
 
-        <tr>
-        <th>TÊN: </th>
-        <th><input type="text" name="ten" value="{{ $nhanvien->ten }}"></th>
-        <tr>
-        <tr>
-        <th>Account: </th>
-        <th><input type="text" name="account" value="{{ $nhanvien->account }}"></th>
-        <tr>
-        <tr>
-        <th>Pass: </th>
-        <th><input type="text" name="password" value="{{ $nhanvien->password }}"></th>
-        <tr>
-        <tr>
-        <th>Số điện thoại: </th>
-        <th><input type="int" name="so_dien_thoai" value="{{$nhanvien->so_dien_thoai}}"></th>
-        <tr>
-        <tr>
-        <th>Địa chỉ: </th>
-        <th><input type="text" name="dia_chi" value="{{$nhanvien->dia_chi}}"></th>
-        <tr>
-        <tr>
-        <th>Email: </th>
-        <th><input type="email" name="email" value="{{ $nhanvien->email }}"></th>
-        <tr>
-        <tr>
-        <tr>
-        <th><input type="submit" name="them" value="Cập Nhật"></th>
-        <tr>
-    </table>
+<form method="POST" action="" enctype="multipart/form-data">
+    @csrf
+    <div class="col-sm-5">
+        <label for="TEN_NhanVien" class="form-label" style="margin: 10px">Tên Nhân Viên</label>
+        <input type="text" class="form-control" id="TEN_NhanVien" value="{{$nhanvien->ten}} " name="ten">
+</div>
+<div class="col-sm-5">
+        <label for="NhanVien_Account" class="form-label" style="margin: 10px">Account</label>
+        <input type="text" class="form-control" id="NhanVien_Account" value="{{$nhanvien->account}}" name="account">
+</div>
+<div class="col-sm-5">
+        <label for="NhanVien_Password" class="form-label" style="margin: 10px">Password</label>
+        <input type="text" class="form-control" id="NhanVien_Password" value="{{$nhanvien->password}}" name="password">
+</div>
+<div class="col-sm-5">
+        <label for="NhanVien_SDT" class="form-label" style="margin: 10px">Số Điện Thoại</label>
+        <input type="text" class="form-control" id="NhanVien_SDT" value="{{$nhanvien->so_dien_thoai}}" name="so_dien_thoai">
+</div>
+<div class="col-sm-5">
+        <label for="NhanVien_dia_chi" class="form-label" style="margin: 10px">Địa Chỉ</label>
+        <input type="text" class="form-control" id="NhanVien_dia_chi" value="{{$nhanvien->dia_chi}}" name="dia_chi">
+</div>
+<div class="col-sm-5">
+        <label for="NhanVien_email" class="form-label" style="margin: 10px">Email</label>
+        <input type="text" class="form-control" id="NhanVien_email" value="{{$nhanvien->email}}" name="email">
+</div>
+<button type="submit" class="btn btn-primary" style="margin:20px">Lưu</button>
 </form>
 @endsection

@@ -13,6 +13,14 @@
         </div>
 </div>
 <div class="col-sm-5">
+    <label class="form-label">Hình ảnh</label>
+    @foreach($dsHinhanh as $hinhanh)
+        @if($hinhanh->san_pham_id==$sanpham->id)
+         <img src="{{asset($hinhanh->url)}}" style="width:35px" />
+        @endif
+    @endforeach
+</div>
+<div class="col-sm-5">
     <label class="form-label">Tên sản phẩm</label>
     <p>{{ $sanpham->ten }}</p>
 </div>
@@ -40,14 +48,7 @@
     <label class="form-label">Mô tả</label>
     <p>{{ $sanpham->mo_ta }}</p>
 </div>
-<div class="col-sm-5">
-    <label class="form-label">Hình ảnh</label>
-    @foreach($dsHinhanh as $hinhanh)
-        @if($hinhanh->san_pham_id==$sanpham->id)
-         <img src="{{asset($hinhanh->url)}}" style="width:35px" />
-        @endif
-    @endforeach
-</div>
+
 <div>
     <a href="{{ route('sanpham.danh-sach')}}" class="btn btn-primary">Quay lại</a>
 </div>

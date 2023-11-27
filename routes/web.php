@@ -26,14 +26,14 @@ Route::post('nhanvien/them-moi',[NhanVienController::class,'xuLyThemMoi']);
 Route::get('nhanvien/cap-nhat/{id}',[NhanVienController::class,'capNhat'])->name('nhanvien.cap-nhat');//->middleware('check.admin.login');
 Route::post('nhanvien/cap-nhat/{id}',[NhanVienController::class,'xuLyCapNhat']);
 Route::get('nhanvien/xoa/{id}',[NhanVienController::class,'xuLyXoa'])->name('nhanvien.xoa');
+Route::get('nhanvien/chi-tiet/{id}',[NhanVienController::class,'chitiet'])->name('nhanvien.chitiet');
 
-
-Route::get('/nguoidung',[NguoiDungController::class,'danhSach'])->name('nguoidung.danh-sach');//->middleware('check.admin.login');
-Route::get('nguoidung/them-moi',[NguoiDungController::class,'themMoi'])->name('nguoidung.them-moi');//->middleware('check.admin.login');
-Route::post('nguoidung/them-moi',[NguoiDungController::class,'xuLyThemMoi']);
-Route::get('nguoidung/cap-nhat/{id}',[NguoiDungController::class,'capNhat'])->name('nguoidung.cap-nhat');//->middleware('check.admin.login');
-Route::post('nguoidung/cap-nhat/{id}',[NguoiDungController::class,'xuLyCapNhat']);
-Route::get('nguoidung/xoa/{id}',[NguoiDungController::class,'xuLyXoa'])->name('nguoidung.xoa');
+Route::get('nguoidung/danh-sach',[NguoiDungController::class,'danhSach'])->name('nguoidung.danh-sach');//->middleware('check.admin.login');
+Route::get('nguoidung/them-moi',[NhanVienController::class,'themMoi'])->name('nguoidung.them-moi');//->middleware('check.admin.login');
+Route::post('nguoidung/them-moi',[NhanVienController::class,'xuLyThemMoi']);
+Route::get('nguoidung/cap-nhat/{id}',[NhanVienController::class,'capNhat'])->name('nguoidung.cap-nhat');//->middleware('check.admin.login');
+Route::post('nguoidung/cap-nhat/{id}',[NhanVienController::class,'xuLyCapNhat']);
+Route::get('nguoidung/xoa/{id}',[NhanVienController::class,'xuLyXoa'])->name('nguoidung.xoa');
 // San Pham
 Route::get('/san-pham',[SanPhamController::class,'danhSach'])->name('sanpham.danh-sach');
 Route::get('san-pham/them-moi',[SanPhamController::class,'themMoi'])->name('sanpham.them-moi');//->middleware('check.admin.login');
@@ -49,3 +49,7 @@ Route::post('san-pham/size/them-moi',[ThuocTinhSanPhamController::class,'xuLyThe
 Route::get('san-pham/danh-muc/them-moi',[ThuocTinhSanPhamController::class,'themDanhMuc'])->name('size.them-moi');//->middleware('check.admin.login');
 Route::post('san-pham/danh-muc/them-moi',[ThuocTinhSanPhamController::class,'xuLyThemDanhMuc'])->name('danhMuc.xl-them-moi');
 
+Route::get('dang-nhap',[NhanVienController::class,'dangNhap'])->name('dang-nhap')->middleware('guest');
+Route::post('dang-nhap',[NhanVienController::class,'dangNhapHandler'])->name('xl-dang-nhap');
+Route::get('thongtin',[NhanVienController::class,'thongTinNguoiDung'])->name('thong-tin');
+Route::get('dangxuat',[NhanVienController::class,'dangXuat'])->name('dang-xuat');

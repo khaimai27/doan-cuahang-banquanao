@@ -4,34 +4,31 @@
 <h1 class="h2">Thêm Nhân Viên</h1>
 <form method="POST" acction="" enctype="multipart/form-data">
     @csrf
-    <table>
-    <tr>
-        <th>TÊN: </th>
-        <th><input type="text" name="ten"></th>
-        <tr>
-        <tr>
-        <th>Account: </th>
-        <th><input type="text" name="account" ></th>
-        <tr>
-        <tr>
-        <th>Password: </th>
-        <th><input type="text" name="password" ></th>
-        <tr>
-        <tr>
-        <th>Số điện thoại: </th>
-        <th><input type="tel" name="so_dien_thoai" >
-        </th>
-        <tr>
-        <tr>
-        <th>Địa chỉ: </th>
-        <th><input type="text" name="dia_chi" ></th>
-        <tr>
-        <tr>
-        <th>Email: </th>
-        <th><input type="email" name="email" ></th>
-        <tr>
-        <th><input type="submit" name="them" value="Thêm mới"></th>
-        <tr>
-    </table>
+    <div class="col-sm-5">
+        <label for="TEN_NhanVien" class="form-label" style="margin: 10px">Tên Nhân Viên</label>
+        <input type="text" class="form-control" id="TEN_NhanVien" name="ten">
+</div>
+<div class="col-sm-5">
+        <label for="NhanVien_Account" class="form-label" style="margin: 10px">Account</label>
+        <input type="text" class="form-control" id="NhanVien_Account" name="account">
+</div>
+<div class="col-sm-5">
+        <label for="NhanVien_Password" class="form-label" style="margin: 10px">Password</label>
+        <input type="text" class="form-control" id="NhanVien_Password" name="password">
+</div>
+<div class="col-sm-5">
+        <label for="NhanVien_SDT" class="form-label" style="margin: 10px">Số Điện Thoại</label>
+        <input type="text" class="form-control" id="NhanVien_SDT" name="so_dien_thoai">
+</div>
+<div class="col-sm-5">
+        <label for="NhanVien_dia_chi" class="form-label" style="margin: 10px">Địa Chỉ</label>
+        <input type="text" class="form-control" id="NhanVien_dia_chi" name="dia_chi">
+</div>
+<div class="col-sm-5">
+        <label for="NhanVien_email" class="form-label" style="margin: 10px">Email</label>
+        <input type="text" class="form-control" id="NhanVien_email" name="email">
+</div>
+<button type="submit" class="btn btn-primary" style="margin:20px">Lưu</button>
 </form>
 @endsection
+

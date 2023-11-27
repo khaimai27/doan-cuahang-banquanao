@@ -9,7 +9,7 @@ class NguoiDungController extends Controller
     public function danhSach()
     {
         $nguoidung = NguoiDung::all();
-        return view('nguoidung.danh-sach', compact('nguoidung'));
+        return view('nguoidung/danh-sach', compact('nguoidung'));
     }
     public function themMoi(Request $rq)
     {
