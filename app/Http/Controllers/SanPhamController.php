@@ -22,7 +22,7 @@ class SanPhamController extends Controller
         return view('products.them-moi', compact('dsDanhMuc', 'dsMauSac', 'dsSize'));
     }
     public function xulyThem(Request $re){
-        
+
         $sanpham=new SanPham();
         $sanpham->ten=$re->ten;
         $sanpham->danh_muc_id=$re->danh_muc_id;
@@ -33,7 +33,7 @@ class SanPhamController extends Controller
         $sanpham->mo_ta=$re->mo_ta;
         $sanpham->save();
         $files = $re->file('hinh_anh_id');
-        
+
         foreach($files as $hinhanh){
             $pic = new HinhAnhSanPham();
             $pic->url = $hinhanh->store('uploads');
@@ -68,7 +68,7 @@ class SanPhamController extends Controller
         $sanpham = SanPham::find($id);
         if (empty( $sanpham)) {
             return redirect()->route('sanpham.danh-sach')->with('thong_bao', 'SẢN PHẨM KHÔNG TỒN TẠI');
-        }      
+        }
         $sanpham->ten=$re->ten;
         $sanpham->danh_muc_id=$re->danh_muc_id;
         $sanpham->mau_sac_id=$re->mau_sac_id;
@@ -78,10 +78,10 @@ class SanPhamController extends Controller
         $sanpham->mo_ta=$re->mo_ta;
         $sanpham->save();
         $files = $re->file('hinh_anh_id');
-        
+
         foreach($files as $hinhanh){
             $pic = new HinhAnhSanPham();
-            $pic->url = $hinhanh->store('uploads');
+            $pic->url = $hinhanh->store('images/sanpham');
             $pic->san_pham_id = $sanpham->id;
             $pic->save();
         }

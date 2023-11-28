@@ -28,7 +28,7 @@ class QuanLyController extends Controller
         $quanly->dia_chi = $request->dia_chi;
         $quanly->email= $request->email;
         $quanly->save();
-        return redirect()->route('quanly.danh-sach')->with('thong-bao', 'Thêm thành công');
+        return redirect()->route('quanly.danh-sach')->with('thong_bao', 'Thêm thành công');
     }
     public function capNhat($id)
     {
@@ -47,7 +47,7 @@ class QuanLyController extends Controller
         $quanly->save();
 
 
-        return redirect()->route('quanly.danh-sach')->with('thong-bao', 'Cập nhật thành công');
+        return redirect()->route('quanly.danh-sach')->with('thong_bao', 'Cập nhật thành công');
     }
     public function xuLyXoa($id)
     {
@@ -57,7 +57,7 @@ class QuanLyController extends Controller
             return "Nhân viên không tồn tại";
         }
         $quanly->delete();
-        return redirect()->route('quanly.danh-sach')->with('thong-bao', 'Xóa thành công');
+        return redirect()->route('quanly.danh-sach')->with('thong_bao', 'Xóa thành công');
     }
     public function chitiet($id)
     {

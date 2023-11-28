@@ -48,7 +48,7 @@
         <th>{{$nv->dia_chi}}</th>
         <th>{{$nv->email}}</th>
             <td>
-              <a href="{{ route('nhanvien.cap-nhat',['id'=>$nv->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a href="{{ route('nhanvien.xoa',['id'=>$nv->id])}}" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('nhanvien.xoa',['id'=>$nv->id])}}', event)">Xóa</a>
+              <a href="{{ route('nhanvien.cap-nhat',['id'=>$nv->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('nhanvien.xoa',['id'=>$nv->id])}}', event)">Xóa</a>
             </td>
         </tr>
         @empty

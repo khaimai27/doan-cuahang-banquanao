@@ -19,10 +19,11 @@ class NhanVienController extends Controller
         if(Auth::attempt(['account'=>$request->account,'password'=>$request->password]))
         {
             $nhanvien=Auth::user();
+            $HinhAnh=HinhAnh::all();
             session(['nhanvien' => $nhanvien]);
-            return view('layout')->with('thong_bao', 'Xin chào ');
+            return view('layout',compact('HinhAnh'))->with('thong_bao', 'Xin chào');
         }
-        return "Đăng nhập thất bại";
+        return redirect()->route('dang-nhap')->with('thong_bao', 'Sai tên đăng nhập hoặc mật khẩu');
 
     }
     public function thongTinNguoiDung()

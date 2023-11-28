@@ -1,3 +1,5 @@
+
+
 <section class="vh-100">
   <head>
 
@@ -13,7 +15,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/favicon.ico" />
 
 		<!-- TITLE -->
-		<title>Noa – Bootstrap 5 Admin & Dashboard Template</title>
+		<title>Trang Admin</title>
 
 		<!-- BOOTSTRAP CSS -->
 		<link id="style" href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -24,10 +26,16 @@
 
 		<!--- FONT-ICONS CSS -->
 		<link href="../assets/css/icons.css" rel="stylesheet"/>
+        <link href="{{asset('sweetalert2.min.css')}}" rel="stylesheet"/>
 
 	</head>
 
 	<body class="ltr login-img">
+    @if(session('thong_bao'))
+        <script>
+             swal.fire("{{session('thong_bao')}}", icon:'warning');
+        </script>
+    @endif
 
 			<!-- GLOABAL LOADER -->
 			<div id="global-loader">
@@ -50,30 +58,27 @@
         <form class="login100-form validate-form"  method="POST" action="{{route('xl-dang-nhap')}}">
         @csrf
 									<span class="login100-form-title">
-										Login
+										Đăng nhập
 									</span>
 									<div class="wrap-input100 validate-input" data-bs-validate = "Valid accounts">
-										<input class="input100" type="text" name="account" placeholder="account">
+										<input class="input100" type="text" name="account" placeholder="Tài khoản">
 										<span class="focus-input100"></span>
 										<span class="symbol-input100">
 											<i class="zmdi zmdi-email" aria-hidden="true"></i>
 										</span>
 									</div>
 									<div class="wrap-input100 validate-input" data-bs-validate = "Password is required">
-										<input class="input100" type="text" name="password" placeholder="password">
+										<input class="input100" type="text" name="password" placeholder="Mật khẩu">
 										<span class="focus-input100"></span>
 										<span class="symbol-input100">
 											<i class="zmdi zmdi-lock" aria-hidden="true"></i>
 										</span>
 									</div>
 									<div class="text-end pt-1">
-										<p class="mb-0"><a href="forgot-password.html" class="text-primary ms-1">Forgot Password?</a></p>
+										<p class="mb-0"><a href="forgot-password.html" class="text-primary ms-1">Quên mật khẩu?</a></p>
 									</div>
 									<div class="container-login100-form-btn">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
-									</div>
-									<div class="text-center pt-3">
-										<p class="text-dark mb-0">Not a member?<a href="register.html" class="text-primary ms-1">Create an Account</a></p>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">Đăng nhập</button>
 									</div>
 								</form>
                                 </div>
@@ -103,6 +108,7 @@
 
 		<!-- CUSTOM JS -->
 		<script src="../assets/js/custom.js"></script>
+        <script src="{{asset('sweetalert2.all.min.js')}}"></script>
 
 	</body>
 
