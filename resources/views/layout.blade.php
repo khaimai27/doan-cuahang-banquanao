@@ -1,10 +1,7 @@
-@php
-    $dsNhanVien=session('$dsNhanVien');
-@endphp
+
 <!doctype html>
 <html lang="en" dir="ltr">
 	<head>
-
 		<!-- META DATA -->
 		<meta charset="UTF-8">
 		<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
@@ -39,7 +36,6 @@
 	</head>
 
 	<body class="ltr app sidebar-mini light-mode">
-
 		<!-- GLOBAL-LOADER -->
 		<div id="global-loader">
 			<img src="{{asset('assets/images/loader.svg')}}" class="loader-img" alt="Loader">
@@ -424,7 +420,7 @@
 															</div>
 														</a>
 													</div>
-													<div class="dropdown-divider m-0">{{$dsNhanVien->username}}</div>
+													<div class="dropdown-divider m-0"></div>
 													<div class="text-center p-3">
 														<a class="btn btn-primary">View All Notifications</a>
 													</div>
@@ -438,7 +434,7 @@
 															class="avatar  profile-user brround cover-image">
 													</span>
 													<div class="text-center p-1 d-flex d-lg-none-max">
-														<h6 class="mb-0" id="profile-heading"><i class="user-angle ms-1 fa fa-angle-down "></i></h6>
+														<h6 class="mb-0" id="profile-heading">{{session('nhanvien')->ten}}<i class="user-angle ms-1 fa fa-angle-down "></i></h6>
 													</div>
 												</a>
 												<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">

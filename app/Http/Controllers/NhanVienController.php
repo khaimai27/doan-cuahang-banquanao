@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\NhanVien;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 class NhanVienController extends Controller
 {
     public function dangNhap()
@@ -16,7 +17,9 @@ class NhanVienController extends Controller
 
         if(Auth::attempt(['account'=>$request->account,'password'=>$request->password]))
         {
-            return view('layout');
+            $nhanvien=Auth::user();
+            session(['nhanvien' => $nhanvien]);
+            return view('layout')->with('thong_bao', 'Xin chào ');
         }
         return "Đăng nhập thất bại";
 
