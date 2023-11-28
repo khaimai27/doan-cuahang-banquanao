@@ -5,6 +5,7 @@ use App\Http\Controllers\NhanVienController;
 use App\Http\Controllers\NguoiDungController;
 use App\Http\Controllers\ThuocTinhSanPhamController;
 use App\Http\Controllers\SanPhamController;
+use App\Http\Controllers\QuanLyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,12 +29,25 @@ Route::post('nhanvien/cap-nhat/{id}',[NhanVienController::class,'xuLyCapNhat']);
 Route::get('nhanvien/xoa/{id}',[NhanVienController::class,'xuLyXoa'])->name('nhanvien.xoa');
 Route::get('nhanvien/chi-tiet/{id}',[NhanVienController::class,'chitiet'])->name('nhanvien.chitiet');
 
+Route::get('/upload',[UpLoadController::class,'upload']);
+Route::post('/do-upload',[UpLoadController::class,'uploadHandler'])->name('do-upload');
+
+
 Route::get('nguoidung/danh-sach',[NguoiDungController::class,'danhSach'])->name('nguoidung.danh-sach');//->middleware('check.admin.login');
-Route::get('nguoidung/them-moi',[NhanVienController::class,'themMoi'])->name('nguoidung.them-moi');//->middleware('check.admin.login');
-Route::post('nguoidung/them-moi',[NhanVienController::class,'xuLyThemMoi']);
-Route::get('nguoidung/cap-nhat/{id}',[NhanVienController::class,'capNhat'])->name('nguoidung.cap-nhat');//->middleware('check.admin.login');
-Route::post('nguoidung/cap-nhat/{id}',[NhanVienController::class,'xuLyCapNhat']);
-Route::get('nguoidung/xoa/{id}',[NhanVienController::class,'xuLyXoa'])->name('nguoidung.xoa');
+Route::get('nguoidung/them-moi',[NguoiDungController::class,'themMoi'])->name('nguoidung.them-moi');//->middleware('check.admin.login');
+Route::post('nguoidung/them-moi',[NguoiDungController::class,'xuLyThemMoi']);
+Route::get('nguoidung/cap-nhat/{id}',[NguoiDungController::class,'capNhat'])->name('nguoidung.cap-nhat');//->middleware('check.admin.login');
+Route::post('nguoidung/cap-nhat/{id}',[NguoiDungController::class,'xuLyCapNhat']);
+Route::get('nguoidung/xoa/{id}',[NguoiDungController::class,'xuLyXoa'])->name('nguoidung.xoa');
+Route::get('nguoidung/chi-tiet/{id}',[NguoiDungController::class,'chitiet'])->name('nguoidung.chitiet');
+
+Route::get('quanly/danh-sach',[QuanLyController::class,'danhSach'])->name('quanly.danh-sach');//->middleware('check.admin.login');
+Route::get('quanly/them-moi',[QuanLyController::class,'themMoi'])->name('quanly.them-moi');//->middleware('check.admin.login');
+Route::post('quanly/them-moi',[QuanLyController::class,'xuLyThemMoi']);
+Route::get('quanly/cap-nhat/{id}',[QuanLyController::class,'capNhat'])->name('quanly.cap-nhat');//->middleware('check.admin.login');
+Route::post('quanly/cap-nhat/{id}',[QuanLyController::class,'xuLyCapNhat']);
+Route::get('quanly/xoa/{id}',[QuanLyController::class,'xuLyXoa'])->name('quanly.xoa');
+Route::get('quanly/chi-tiet/{id}',[QuanLyController::class,'chitiet'])->name('quanly.chitiet');
 // San Pham
 Route::get('/san-pham',[SanPhamController::class,'danhSach'])->name('sanpham.danh-sach');
 Route::get('san-pham/them-moi',[SanPhamController::class,'themMoi'])->name('sanpham.them-moi');//->middleware('check.admin.login');

@@ -4,7 +4,10 @@
 <h1 class="h2">Thêm Tài Khoản Khách Hàng</h1>
 <form method="POST" acction="" enctype="multipart/form-data">
     @csrf
-
+    <div class="col-sm-5">
+        <label for="HinhAnh_KhachHang" class="form-label" style="margin: 10px">Chọn ảnh đại diện</label>
+        <input type="file" class="form-control" id="TEN_KhachHang" name="hinh_anh[]">
+</div>
     <div class="col-sm-5">
         <label for="TEN_KhachHang" class="form-label" style="margin: 10px">Tên Khách Hàng</label>
         <input type="text" class="form-control" id="TEN_KhachHang" name="ten">

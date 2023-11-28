@@ -41,7 +41,7 @@
             <td>{{ $sanpham->so_luong_ton }}</td>
             <td>{{ $sanpham->mo_ta }}</td>
             <td>
-            <a href="{{ route('sanpham.chitiet',['id'=>$sanpham->id])}}" class="btn btn-sm btn-outline-secondary">Chi tiết</a>  <a href="{{ route('sanpham.sua',['id'=>$sanpham->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a href="{{ route('sanpham.xl.xoa',['id'=>$sanpham->id])}}" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('sanpham.xl.xoa',['id'=>$sanpham->id])}}', event)">Xóa</a>
+  <a href="{{ route('sanpham.sua',['id'=>$sanpham->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a href="{{ route('sanpham.xl.xoa',['id'=>$sanpham->id])}}" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('sanpham.xl.xoa',['id'=>$sanpham->id])}}', event)">Xóa</a>
             </td>
         </tr>
         @empty

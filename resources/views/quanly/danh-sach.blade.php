@@ -8,11 +8,11 @@
 @endsection
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Danh Sách Khách Hàng</h1>
+        <h1 class="h2">Danh Sách Quản Lý</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class=
             "btn-group me-2">
-            <a href="{{ route('nguoidung.them-moi')}}" class="btn btn-sm btn-outline-secondary">Thêm mới</a>
+            <a href="{{ route('quanly.them-moi')}}" class="btn btn-sm btn-outline-secondary">Thêm mới</a>
             </div>
           </button>
         </div>
@@ -21,9 +21,8 @@
 <table class="table table-striped table-sm">
     <thead>
         <tr>
-            <th scope="col">Mã khách Hàng</th>
-
-            <th scope="col">Tên khách hàng</th>
+            <th scope="col">Mã Admin</th>
+            <th scope="col">Tên Admin</th>
             <th scope="col">Số điện thoại</th>
             <th scope="col">Địa chỉ</th>
             <th scope="col">Email</th>
@@ -32,22 +31,20 @@
         </tr>
     </thead>
     <tbody>
-        @forelse($nguoidung as $nd)
+        @forelse($quanly as $ql)
         <tr>
-        <th>{{$nd->id}}</th>
-
-        <th>{{$nd->ten}}</th>
-
-        <th>{{$nd->so_dien_thoai}}</th>
-        <th>{{$nd->dia_chi}}</th>
-        <th>{{$nd->email}}</th>
+        <th>{{$ql->id}}</th>
+        <th>{{$ql->ten}}</th>
+        <th>{{$ql->so_dien_thoai}}</th>
+        <th>{{$ql->dia_chi}}</th>
+        <th>{{$ql->email}}</th>
             <td>
-  <a href="{{ route('nguoidung.cap-nhat',['id'=>$nd->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a href="{{ route('nguoidung.xoa',['id'=>$nd->id])}}" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('nguoidung.xoa',['id'=>$nd->id])}}', event)">Xóa</a>
+            <a href="{{ route('quanly.chitiet',['id'=>$ql->id])}}" class="btn btn-sm btn-outline-secondary">Chi tiết</a>  <a href="{{ route('quanly.cap-nhat',['id'=>$ql->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a href="{{ route('quanly.xoa',['id'=>$ql->id])}}" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('quanly.xoa',['id'=>$ql->id])}}', event)">Xóa</a>
             </td>
         </tr>
         @empty
         <tr>
-            <td colspan="6">Danh sách rỗng.</td>
+            <td colspan="6">Không có nhân viên nào.</td>
         </tr>
         @endforelse
     </tbody>

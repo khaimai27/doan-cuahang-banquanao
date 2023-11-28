@@ -424,7 +424,7 @@
 															</div>
 														</a>
 													</div>
-													<div class="dropdown-divider m-0">{{$dsNhanVien->username}}</div>
+													<div class="dropdown-divider m-0"></div>
 													<div class="text-center p-3">
 														<a class="btn btn-primary">View All Notifications</a>
 													</div>
@@ -526,6 +526,7 @@
 										<li class="side-menu-label1"><a href="#"></a></li>
                                         <li><a href="{{route('nhanvien.danh-sach')}}" class="slide-item">Danh Sách Tài Khoản Nhân Viên</a></li>
 										<li><a href="{{route('nguoidung.danh-sach')}}" class="slide-item">Danh Sách Tài Khoản Khách Hàng</a></li>
+                                        <li><a href="{{route('quanly.danh-sach')}}" class="slide-item">Danh Sách Tài Khoản Quản Lý</a></li>
 									</ul>
 								</li>
 								<li class="slide">
@@ -568,15 +569,30 @@
 				<!-- CONTAINER CLOSED -->
 			</div>
 			<!-- FOOTER -->
-			<footer class="footer">
-				<div class="container">
-					<div class="row align-items-center flex-row-reverse">
-						<div class="col-md-12 col-sm-12 text-center">
+			<footer>
 
-						</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+
+				</div>
+					<div class="footer">
+						<div class="container">
+							<div class="row align-items-center flex-row-reverse">
+								<div class="col-md-12 col-sm-12 text-center">
+									Copyright © 2022 <a href="#">Noa</a>. Designed with <span class="fa fa-heart text-danger"></span> by <a href="#"> Spruko </a> All rights reserved
+								</div>
+                            </div>
+                        </div>
 					</div>
 				</div>
-			</footer>
+			</div>
+		</div>
+	</div>
+</div>
+							<!-- ROW-1 CLOSED -->
+</footer>
 			<!-- FOOTER CLOSED -->
 		</div>
 

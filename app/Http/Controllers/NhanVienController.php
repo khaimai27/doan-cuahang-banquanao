@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\NhanVien;
+use App\Models\HinhAnh;
 use Illuminate\Support\Facades\Auth;
 class NhanVienController extends Controller
 {
@@ -38,16 +39,18 @@ class NhanVienController extends Controller
     }
     public function danhSach()
     {
+        $HinhAnh=HinhAnh::all();
         $nhanvien = NhanVien::all();
-        return view('nhanvien.danh-sach', compact('nhanvien'));
+        return view('nhanvien.danh-sach', compact('nhanvien','HinhAnh'));
     }
     public function themMoi(Request $rq)
     {
         $nhanvien = NhanVien::all();
         return view('nhanvien.them-moi', compact('nhanvien'));
     }
-    public function xuLyThemMoi(Request $request )
+    public function xuLyThemMoi(Request $request)
     {
+
         $nhanvien = new NhanVien();
         $nhanvien->ten = $request->ten;
         $nhanvien->account = $request->account;
@@ -56,6 +59,17 @@ class NhanVienController extends Controller
         $nhanvien->dia_chi = $request->dia_chi;
         $nhanvien->email= $request->email;
         $nhanvien->save();
+        $files=$request->hinh_anh;
+
+
+        foreach($files as $ha){
+            $pic = new HinhAnh;
+            $pic->nhan_vien_id=$nhanvien->id;
+            $path=$ha->store('images/nhanvien');
+            $pic->url=$path;
+
+            $pic->save();
+        }
         return redirect()->route('nhanvien.danh-sach')->with('thong-bao', 'Thêm thành công');
     }
     public function capNhat($id)
@@ -89,6 +103,7 @@ class NhanVienController extends Controller
     }
     public function chitiet($id)
     {
+
         $nhanvien = NhanVien::find($id);
         return view('nhanvien.chi-tiet',compact('nhanvien'));
     }

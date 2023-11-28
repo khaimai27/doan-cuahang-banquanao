@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\NguoiDung;
+use App\Models\HinhAnh;
 class NguoiDungController extends Controller
 {
     public function danhSach()
@@ -26,6 +27,7 @@ class NguoiDungController extends Controller
         $nguoidung->dia_chi = $request->dia_chi;
         $nguoidung->email= $request->email;
         $nguoidung->save();
+
         return redirect()->route('nguoidung.danh-sach')->with('thong-bao', 'Thêm thành công');
     }
     public function capNhat($id)
@@ -56,5 +58,10 @@ class NguoiDungController extends Controller
         }
         $nguoidung->delete();
         return redirect()->route('nguoidung.danh-sach')->with('thong-bao', 'Xóa thành công');
+    }
+    public function chitiet($id)
+    {
+        $nguoidung = nguoidung::find($id);
+        return view('nguoidung.chi-tiet',compact('nguoidung'));
     }
 }

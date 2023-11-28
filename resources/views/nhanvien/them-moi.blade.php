@@ -5,6 +5,10 @@
 <form method="POST" acction="" enctype="multipart/form-data">
     @csrf
     <div class="col-sm-5">
+        <label for="HinhAnh_NhanVien" class="form-label" style="margin: 10px">Chọn ảnh đại diện</label>
+        <input type="file" class="form-control" id="TEN_NhanVien" name="hinh_anh[]">
+</div>
+    <div class="col-sm-5">
         <label for="TEN_NhanVien" class="form-label" style="margin: 10px">Tên Nhân Viên</label>
         <input type="text" class="form-control" id="TEN_NhanVien" name="ten">
 </div>

@@ -23,6 +23,7 @@
     <thead>
         <tr>
             <th scope="col">Mã nhân viên</th>
+            <th scope="col">Hình Ảnh</th>
             <th scope="col">Tên nhân viên</th>
             <th scope="col">Số điện thoại</th>
             <th scope="col">Địa chỉ</th>
@@ -35,12 +36,19 @@
         @forelse($nhanvien as $nv)
         <tr>
         <th>{{$nv->id}}</th>
+        <th>
+            @foreach($HinhAnh as $ha)
+            @if($ha->nhan_vien_id==$nv->id)
+            <img src="{{asset($ha->url)}}" style="width:50px" />
+            @endif
+            @endforeach
+        </th>
         <th>{{$nv->ten}}</th>
         <th>{{$nv->so_dien_thoai}}</th>
         <th>{{$nv->dia_chi}}</th>
         <th>{{$nv->email}}</th>
             <td>
-            <a href="{{ route('nhanvien.chitiet',['id'=>$nv->id])}}" class="btn btn-sm btn-outline-secondary">Chi tiết</a>  <a href="{{ route('nhanvien.cap-nhat',['id'=>$nv->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a href="{{ route('nhanvien.xoa',['id'=>$nv->id])}}" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('nhanvien.xoa',['id'=>$nv->id])}}', event)">Xóa</a>
+              <a href="{{ route('nhanvien.cap-nhat',['id'=>$nv->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a href="{{ route('nhanvien.xoa',['id'=>$nv->id])}}" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('nhanvien.xoa',['id'=>$nv->id])}}', event)">Xóa</a>
             </td>
         </tr>
         @empty
