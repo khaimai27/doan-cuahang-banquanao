@@ -5,7 +5,7 @@ use App\Http\Controllers\NhanVienController;
 use App\Http\Controllers\NguoiDungController;
 use App\Http\Controllers\ThuocTinhSanPhamController;
 use App\Http\Controllers\SanPhamController;
-
+use App\Http\Controllers\HoaDonController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,7 +49,13 @@ Route::post('san-pham/size/them-moi',[ThuocTinhSanPhamController::class,'xuLyThe
 Route::get('san-pham/danh-muc/them-moi',[ThuocTinhSanPhamController::class,'themDanhMuc'])->name('size.them-moi');//->middleware('check.admin.login');
 Route::post('san-pham/danh-muc/them-moi',[ThuocTinhSanPhamController::class,'xuLyThemDanhMuc'])->name('danhMuc.xl-them-moi');
 
-Route::get('dang-nhap',[NhanVienController::class,'dangNhap'])->name('dang-nhap')->middleware('guest');
+Route::get('dang-nhap',[NhanVienController::class,'dangNhap'])->name('dang-nhap');
 Route::post('dang-nhap',[NhanVienController::class,'dangNhapHandler'])->name('xl-dang-nhap');
 Route::get('thongtin',[NhanVienController::class,'thongTinNguoiDung'])->name('thong-tin');
 Route::get('dangxuat',[NhanVienController::class,'dangXuat'])->name('dang-xuat');
+
+//Hóa Đơn
+Route::get('hoadon/them-moi',[HoaDonController::class,'create'])->name('hoa-don.them-moi');
+Route::post('hoadon/them-moi',[HoaDonController::class,'xulithemmoi'])->name('hoa-don.xl-them-moi');
+Route::get('hoadon/danh-sach',[HoaDonController::class,'index'])->name('hoa-don.danh-sach');
+Route::get('hoadon/xoa/{id}',[HoaDonController::class,'destroy'])->name('hoa-don.xoa');
