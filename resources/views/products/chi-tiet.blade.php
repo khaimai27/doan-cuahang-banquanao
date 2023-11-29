@@ -14,11 +14,15 @@
 </div>
 <div class="col-sm-5">
     <label class="form-label">Hình ảnh</label>
-    @foreach($dsHinhanh as $hinhanh)
-        @if($hinhanh->san_pham_id==$sanpham->id)
-         <img src="{{asset($hinhanh->url)}}" style="width:200px" />
-        @endif
-    @endforeach
+    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        @foreach($dsHinhanh as $hinhanh)
+            @if($hinhanh->san_pham_id == $sanpham->id)
+                <div style="flex: 0 0 30%; max-width: 30%; text-align: center;">
+                    <img src="{{asset($hinhanh->url)}}" style="width: 100%; border-radius: 8px;" />
+                </div>
+            @endif
+        @endforeach
+    </div>
 </div>
 <div class="col-sm-5">
     <label class="form-label">Tên sản phẩm</label>

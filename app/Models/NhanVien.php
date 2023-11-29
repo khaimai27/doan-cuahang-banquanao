@@ -13,4 +13,8 @@ class NhanVien extends Authenticatable
     public function hinh_anh(){
         return $this->beLongsTo(HinhAnh::class,'hinh_anh_id');
     }
+    public function hinhAnh()
+    {
+        return $this->hasOne(HinhAnh::class, 'nhan_vien_id');
+    }
 }

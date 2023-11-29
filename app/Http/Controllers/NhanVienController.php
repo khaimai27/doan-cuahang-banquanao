@@ -20,7 +20,7 @@ class NhanVienController extends Controller
         {
             $nhanvien=Auth::user();
             $HinhAnh=HinhAnh::all();
-            session(['nhanvien' => $nhanvien]);
+            session(['nhanvien' => $nhanvien, 'hinh_anh_url' => $nhanvien->hinhAnh->url]);
             return view('layout',compact('HinhAnh'))->with('thong_bao', 'Xin chào');
         }
         return redirect()->route('dang-nhap')->with('thong_bao', 'Sai tên đăng nhập hoặc mật khẩu');
@@ -91,6 +91,17 @@ class NhanVienController extends Controller
         $nhanvien->dia_chi = $request->dia_chi;
         $nhanvien->email= $request->email;
         $nhanvien->save();
+        $files=$request->hinh_anh;
+
+
+        foreach($files as $ha){
+            $pic = new HinhAnh;
+            $pic->nhan_vien_id=$nhanvien->id;
+            $path=$ha->store('images/nhanvien');
+            $pic->url=$path;
+
+            $pic->save();
+        }
 
 
         return redirect()->route('nhanvien.danh-sach')->with('thong-bao', 'Cập nhật thành công');

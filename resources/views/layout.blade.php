@@ -101,12 +101,6 @@
 													</div>
 												</div>
 											</div>
-											<!-- COUNTRY -->
-											<div class="dropdown d-md-flex main-header-notification flag-dropdown">
-												<a class="nav-link icon text-center country-nav-link" data-bs-target="#country-selector" data-bs-toggle="modal">
-													<img class="header-icons language" alt="" src="../assets/images/flags/us_flag.jpg">
-												</a>
-											</div>
 											<!-- SEARCH -->
 											<div class="dropdown  d-flex">
 												<a class="nav-link icon theme-layout nav-link-bg layout-setting">
@@ -430,9 +424,9 @@
 											<div class="dropdown d-md-flex profile-1">
 												<a href="#" data-bs-toggle="dropdown" class="nav-link pe-2 leading-none d-flex animate">
 													<span>
-                                                            <!-- Avatar -->
-                                                            <!-- <img src="" alt="profile-user"
-															class="avatar  profile-user brround cover-image"> -->
+                                                            
+                                                             <img src="{{ asset(session('hinh_anh_url')) }}" alt="profile-user"
+															class="avatar  profile-user brround cover-image">
 
 
 													</span>

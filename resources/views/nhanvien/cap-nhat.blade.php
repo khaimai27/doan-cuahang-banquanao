@@ -40,6 +40,11 @@
         <label for="NhanVien_email" class="form-label" style="margin: 10px">Email</label>
         <input type="text" class="form-control" id="NhanVien_email" value="{{$nhanvien->email}}" name="email">
 </div>
+<div class="col-sm-5">
+        <label for="HinhAnh_NhanVien" class="form-label" style="margin: 10px">Chọn ảnh đại diện</label>
+        <input type="file" class="form-control" id="TEN_NhanVien" name="hinh_anh[]">
+</div>
 <button type="submit" class="btn btn-primary" style="margin:20px">Lưu</button>
+<a href="{{ route('nhanvien.danh-sach')}}" class="btn btn-primary">Quay lại</a>
 </form>
 @endsection
