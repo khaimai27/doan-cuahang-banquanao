@@ -437,7 +437,7 @@
 
 													</span>
 													<div class="text-center p-1 d-flex d-lg-none-max">
-														<h6 class="mb-0" id="profile-heading">{{session('nhanvien')->ten}}<i class="user-angle ms-1 fa fa-angle-down "></i></h6>
+														<h6 class="mb-0" id="profile-heading"><i class="user-angle ms-1 fa fa-angle-down "></i></h6>
 													</div>
 												</a>
 												<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -523,9 +523,9 @@
 										<span class="side-menu__label">Quản Lý Tài khoản</span><i class="angle fa fa-angle-right"></i></a>
 									<ul class="slide-menu">
 										<li class="side-menu-label1"><a href="#"></a></li>
-                                        <li><a href="{{route('nhanvien.danh-sach')}}" class="slide-item">Danh Sách Tài Khoản Nhân Viên</a></li>
-										<li><a href="{{route('nguoidung.danh-sach')}}" class="slide-item">Danh Sách Tài Khoản Khách Hàng</a></li>
-                                        <li><a href="{{route('quanly.danh-sach')}}" class="slide-item">Danh Sách Tài Khoản Quản Lý</a></li>
+                                        <li><a href="{{route('account.nhanvien.danh-sach')}}" class="slide-item">Danh Sách Tài Khoản Nhân Viên</a></li>
+										<li><a href="{{route('account.khachhang.danh-sach')}}" class="slide-item">Danh Sách Tài Khoản Khách Hàng</a></li>
+
 									</ul>
 								</li>
 								<li class="slide">

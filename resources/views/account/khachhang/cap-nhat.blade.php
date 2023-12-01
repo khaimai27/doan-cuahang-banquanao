@@ -11,27 +11,27 @@
 
         <tr>
         <th>TÊN: </th>
-        <th><input type="text" name="ten" value="{{ $nguoidung->ten }}"></th>
+        <th><input type="text" name="ten" value="{{ $khachhang->ten }}"></th>
         <tr>
         <tr>
         <th>Account: </th>
-        <th><input type="text" name="account" value="{{ $nguoidung->account }}"></th>
+        <th><input type="text" name="account" value="{{ $khachhang->account }}"></th>
         <tr>
         <tr>
         <th>Pass: </th>
-        <th><input type="text" name="password" value="{{ $nguoidung->password }}"></th>
+        <th><input type="text" name="password" value="{{ $khachhang->password }}"></th>
         <tr>
         <tr>
         <th>Số điện thoại: </th>
-        <th><input type="int" name="so_dien_thoai" value="{{$nguoidung->so_dien_thoai}}"></th>
+        <th><input type="int" name="so_dien_thoai" value="{{$khachhang->so_dien_thoai}}"></th>
         <tr>
         <tr>
         <th>Địa chỉ: </th>
-        <th><input type="text" name="dia_chi" value="{{$nguoidung->dia_chi}}"></th>
+        <th><input type="text" name="dia_chi" value="{{$khachhang->dia_chi}}"></th>
         <tr>
         <tr>
         <th>Email: </th>
-        <th><input type="email" name="email" value="{{ $nguoidung->email }}"></th>
+        <th><input type="email" name="email" value="{{ $khachhang->email }}"></th>
         <tr>
         <tr>
         <tr>

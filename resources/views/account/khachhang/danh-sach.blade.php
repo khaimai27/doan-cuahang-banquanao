@@ -12,7 +12,7 @@
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class=
             "btn-group me-2">
-            <a href="{{ route('nguoidung.them-moi')}}" class="btn btn-sm btn-outline-secondary">Thêm mới</a>
+<a href="{{ route('account.khachhang.them-moi')}}" class="btn btn-sm btn-outline-secondary">Thêm mới</a>
             </div>
           </button>
         </div>
@@ -22,7 +22,7 @@
     <thead>
         <tr>
             <th scope="col">Mã khách Hàng</th>
-
+            <th scope="col">Hình Ảnh</th>
             <th scope="col">Tên khách hàng</th>
             <th scope="col">Số điện thoại</th>
             <th scope="col">Địa chỉ</th>
@@ -32,17 +32,24 @@
         </tr>
     </thead>
     <tbody>
-        @forelse($nguoidung as $nd)
+        @forelse($khachhang as $nd)
         <tr>
         <th>{{$nd->id}}</th>
-
+        <th>
+            @foreach($HinhAnhND as $ha)
+            @if($ha->nguoi_dung_id==$nd->id)
+            <img src="{{asset($ha->url)}}" style="width:50px" />
+            @endif
+            @endforeach
+        </th>
         <th>{{$nd->ten}}</th>
 
         <th>{{$nd->so_dien_thoai}}</th>
         <th>{{$nd->dia_chi}}</th>
         <th>{{$nd->email}}</th>
+
             <td>
-  <a href="{{ route('nguoidung.cap-nhat',['id'=>$nd->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a href="{{ route('nguoidung.xoa',['id'=>$nd->id])}}" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('nguoidung.xoa',['id'=>$nd->id])}}', event)">Xóa</a>
+            <a href="{{ route('account.khachhang.chitiet',['id'=>$nd->id])}}" class="btn btn-sm btn-outline-secondary">Chi tiết</a><a href="{{ route('account.khachhang.cap-nhat',['id'=>$nd->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a href="{{ route('account.khachhang.xoa',['id'=>$nd->id])}}" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('account.khachhang.xoa',['id'=>$nd->id])}}', event)">Xóa</a>
             </td>
         </tr>
         @empty

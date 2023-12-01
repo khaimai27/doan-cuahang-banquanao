@@ -20,6 +20,7 @@ class ThemNguoiDungSeeder extends Seeder
         $nguoidung->so_dien_thoai='0931412412';
         $nguoidung->dia_chi='TP.HCM';
         $nguoidung->email='0306211200@caothang.edu.vn';
+        $nguoidung->phan_quyen_id='1';
         $nguoidung->save();
         echo"them admin thanh cong";
     }
