@@ -9,11 +9,11 @@
 @endsection
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">SIZE</h1>
+        <h1 class="h2">DANH MỤC</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class=
             "btn-group me-2">
-            <a href="{{ route('size.them-moi')}}" class="btn btn-sm btn-outline-secondary">Thêm mới</a>
+            <a href="{{ route('danhMuc.them-moi')}}" class="btn btn-sm btn-outline-secondary">Thêm mới</a>
             </div>
           </button>
         </div>
@@ -22,18 +22,18 @@
 <table class="table table-striped table-sm">
     <thead>
         <tr>
-            <th scope="col">Mã Size</th>
-            <th scope="col">Tên Size</th>
+            <th scope="col">Mã danh mục</th>
+            <th scope="col">Tên danh mục</th>
             <th scope="col">Chức năng</th>
         </tr>
     </thead>
     <tbody>
-        @forelse($dsSize as $size)
+        @forelse($dsDanhMuc as $danhmuc)
         <tr>
-            <td>{{ $size->id }}</td>
-            <td>{{ $size->ten }}</td>
+            <td>{{ $danhmuc->id }}</td>
+            <td>{{ $danhmuc->ten }}</td>
             <td>
-            <a href="{{ route('size.sua',['id'=>$size->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('size.xl.xoa',['id'=>$size->id])}}', event)">Xóa</a>
+            <a href="{{ route('danhMuc.sua',['id'=>$danhmuc->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('danhMuc.xl.xoa',['id'=>$danhmuc->id])}}', event)">Xóa</a>
             </td>
         </tr>
         @empty

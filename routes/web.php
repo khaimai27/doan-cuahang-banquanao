@@ -57,11 +57,19 @@ Route::get('san-pham/sua/{id}',[SanPhamController::class,'sua'])->name('sanpham.
 Route::post('san-pham/sua/{id}',[SanPhamController::class,'xuLySua'])->name('sanpham.xl.sua')->middleware('auth');
 Route::get('san-pham/chi-tiet/{id}',[SanPhamController::class,'chitiet'])->name('sanpham.chitiet')->middleware('auth');
 // San Pham/ Size
+Route::get('san-pham/size',[ThuocTinhSanPhamController::class,'danhSachSize'])->name('size.danh-sach')->middleware('auth');
 Route::get('san-pham/size/them-moi',[ThuocTinhSanPhamController::class,'themSize'])->name('size.them-moi')->middleware('auth');//->middleware('check.admin.login');
 Route::post('san-pham/size/them-moi',[ThuocTinhSanPhamController::class,'xuLyThemSize'])->name('size.xl-them-moi')->middleware('auth');
+Route::get('san-pham/size/xoa/{id}',[ThuocTinhSanPhamController::class,'xuLyXoa'])->name('size.xl.xoa')->middleware('auth');
+Route::get('san-pham/size/sua/{id}',[ThuocTinhSanPhamController::class,'sua'])->name('size.sua')->middleware('auth');//->middleware('check.admin.login');
+Route::post('san-pham/size/sua/{id}',[ThuocTinhSanPhamController::class,'xuLySua'])->name('size.xl.sua')->middleware('auth');
 // San Pham /DanhMuc
-Route::get('san-pham/danh-muc/them-moi',[ThuocTinhSanPhamController::class,'themDanhMuc'])->name('size.them-moi')->middleware('auth');//->middleware('check.admin.login');
+Route::get('san-pham/danh-muc',[ThuocTinhSanPhamController::class,'danhSachDanhMuc'])->name('danhMuc.danh-sach')->middleware('auth');
+Route::get('san-pham/danh-muc/them-moi',[ThuocTinhSanPhamController::class,'themDanhMuc'])->name('danhMuc.them-moi')->middleware('auth');//->middleware('check.admin.login');
 Route::post('san-pham/danh-muc/them-moi',[ThuocTinhSanPhamController::class,'xuLyThemDanhMuc'])->name('danhMuc.xl-them-moi')->middleware('auth');
+Route::get('san-pham/danh-muc/xoa/{id}',[ThuocTinhSanPhamController::class,'xuLyxoaDanhMuc'])->name('danhMuc.xl.xoa')->middleware('auth');
+Route::get('san-pham/danh-muc/sua/{id}',[ThuocTinhSanPhamController::class,'suaDanhMuc'])->name('danhMuc.sua')->middleware('auth');//->middleware('check.admin.login');
+Route::post('san-pham/danh-muc/sua/{id}',[ThuocTinhSanPhamController::class,'xulysuaDanhMuc'])->name('danhMuc.xl.sua')->middleware('auth');
 
 Route::get('dang-nhap',[NhanVienController::class,'dangNhap'])->name('dang-nhap')->middleware('guest');
 Route::post('dang-nhap',[NhanVienController::class,'dangNhapHandler'])->name('xl-dang-nhap');

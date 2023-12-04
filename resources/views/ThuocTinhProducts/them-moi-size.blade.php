@@ -19,6 +19,7 @@
     <label for="ten_sanpham" class="form-label" style="margin:10px">Tên size</label>
     <input type="text" class="form-control" id="TEN_SANPHAM" name="ten">
   </div>
+  <a href="{{ route('size.danh-sach')}}" class="btn btn-primary">Quay lại</a>
   <button type="submit" class="btn btn-primary" style="margin:20px">Lưu</button>
 </form>
 @endsection
