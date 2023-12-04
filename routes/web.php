@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NhanVienController;
 use App\Http\Controllers\NguoiDungController;
 use App\Http\Controllers\ThuocTinhSanPhamController;
-use App\Http\Controllers\SanPhamController;
-// <<<<<<< HEAD
 use App\Http\Controllers\QuanLyController;
 
 // =======
