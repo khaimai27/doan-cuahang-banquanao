@@ -6,7 +6,7 @@
     @csrf
     <div class="col-sm-5">
         <label for="HinhAnh_NhanVien" class="form-label" style="margin: 10px">Chọn ảnh đại diện</label>
-        <input type="file" class="form-control" id="TEN_NhanVien" name="hinh_anh[]">
+        <input type="file" class="form-control" id="hinh_anh_id" name="hinh_anh[]">
 </div>
     <div class="col-sm-5">
         <label for="TEN_NhanVien" class="form-label" style="margin: 10px">Tên Nhân Viên</label>
@@ -28,9 +28,20 @@
         <label for="NhanVien_dia_chi" class="form-label" style="margin: 10px">Địa Chỉ</label>
         <input type="text" class="form-control" id="NhanVien_dia_chi" name="dia_chi">
 </div>
+
 <div class="col-sm-5">
         <label for="NhanVien_email" class="form-label" style="margin: 10px">Email</label>
         <input type="text" class="form-control" id="NhanVien_email" name="email">
+</div>
+<div class="col-sm-5">
+        <label for="role_id" class="form-label">Quyền</label>
+        <select name="role_id" class="form-control">
+            @foreach($dsQuyen as $quyen)
+                <option value='{{ $quyen->id }}'>
+                    {{ $quyen->ten }}
+                </option>
+            @endforeach
+        </select>
 </div>
 <button type="submit" class="btn btn-primary" style="margin:20px">Lưu</button>
 </form>

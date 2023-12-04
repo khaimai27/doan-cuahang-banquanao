@@ -13,7 +13,7 @@
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class=
             "btn-group me-2">
-            <a href="{{ route('nhanvien.them-moi')}}" class="btn btn-sm btn-outline-secondary">Thêm mới</a>
+            <a href="{{ route('account.nhanvien.them-moi')}}" class="btn btn-sm btn-outline-secondary">Thêm mới</a>
             </div>
           </button>
         </div>
@@ -28,6 +28,7 @@
             <th scope="col">Số điện thoại</th>
             <th scope="col">Địa chỉ</th>
             <th scope="col">Email</th>
+            <th scope="col">Quyền Hạn</th>
             <th scope="col">Chức năng</th>
 
         </tr>
@@ -35,20 +36,21 @@
     <tbody>
         @forelse($nhanvien as $nv)
         <tr>
-        <th>{{$nv->id}}</th>
-        <th>
+        <td>{{$nv->id}}</td>
+        <td>
             @foreach($HinhAnh as $ha)
             @if($ha->nhan_vien_id==$nv->id)
             <img src="{{asset($ha->url)}}" style="width:50px" />
             @endif
             @endforeach
-        </th>
-        <th>{{$nv->ten}}</th>
-        <th>{{$nv->so_dien_thoai}}</th>
-        <th>{{$nv->dia_chi}}</th>
-        <th>{{$nv->email}}</th>
+        </td>
+        <td>{{$nv->ten}}</td>
+        <td>{{$nv->so_dien_thoai}}</td>
+        <td>{{$nv->dia_chi}}</td>
+        <td>{{$nv->email}}</td>
+        <td>{{$nv->phan_quyen->ten}}</td>
             <td>
-              <a href="{{ route('nhanvien.cap-nhat',['id'=>$nv->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('nhanvien.xoa',['id'=>$nv->id])}}', event)">Xóa</a>
+            <a href="{{ route('account.nhanvien.chitiet',['id'=>$nv->id])}}" class="btn btn-sm btn-outline-secondary">Chi tiết</a><a href="{{ route('account.nhanvien.cap-nhat',['id'=>$nv->id])}}" class="btn btn-sm btn-outline-secondary">Sửa</a>  <a class="btn btn-sm btn-outline-secondary" onclick="confirmDelete('{{ route('account.nhanvien.xoa',['id'=>$nv->id])}}', event)">Xóa</a>
             </td>
         </tr>
         @empty

@@ -6,7 +6,7 @@
     @csrf
     <div class="col-sm-5">
         <label for="HinhAnh_KhachHang" class="form-label" style="margin: 10px">Chọn ảnh đại diện</label>
-        <input type="file" class="form-control" id="TEN_KhachHang" name="hinh_anh[]">
+        <input type="file" class="form-control" id="hinh_anh_id" name="hinh_anh[]">
 </div>
     <div class="col-sm-5">
         <label for="TEN_KhachHang" class="form-label" style="margin: 10px">Tên Khách Hàng</label>

@@ -431,7 +431,7 @@
 
 													</span>
 													<div class="text-center p-1 d-flex d-lg-none-max">
-														<h6 class="mb-0" id="profile-heading">{{session('nhanvien')->ten}}<i class="user-angle ms-1 fa fa-angle-down "></i></h6>
+														<h6 class="mb-0" id="profile-heading"><i class="user-angle ms-1 fa fa-angle-down "></i></h6>
 													</div>
 												</a>
 												<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -526,10 +526,18 @@
 										<span class="side-menu__label">Quản Lý Tài khoản</span><i class="angle fa fa-angle-right"></i></a>
 									<ul class="slide-menu">
 										<li class="side-menu-label1"><a href="#"></a></li>
-                                        <li><a href="{{route('nhanvien.danh-sach')}}" class="slide-item">Danh Sách Tài Khoản Nhân Viên</a></li>
-										<li><a href="{{route('nguoidung.danh-sach')}}" class="slide-item">Danh Sách Tài Khoản Khách Hàng</a></li>
-                                        <li><a href="{{route('quanly.danh-sach')}}" class="slide-item">Danh Sách Tài Khoản Quản Lý</a></li>
+                                        <li><a href="{{route('account.nhanvien.danh-sach')}}" class="slide-item">Danh Sách Tài Khoản Nhân Viên</a></li>
+										<li><a href="{{route('account.khachhang.danh-sach')}}" class="slide-item">Danh Sách Tài Khoản Khách Hàng</a></li>
+
 									</ul>
+								</li>
+								<li class="slide">
+									<a class="side-menu__item" data-bs-toggle="slide" href="#">
+										<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M19,2H9C7.3438721,2.0018311,6.0018311,3.3438721,6,5v1H5C3.3438721,6.0018311,2.0018311,7.3438721,2,9v10c0.0018311,1.6561279,1.3438721,2.9981689,3,3h10c1.6561279-0.0018311,2.9981689-1.3438721,3-3v-1h1c1.6561279-0.0018311,2.9981689-1.3438721,3-3V5C21.9981689,3.3438721,20.6561279,2.0018311,19,2z M17,19c-0.0014038,1.1040039-0.8959961,1.9985962-2,2H5c-1.1040039-0.0014038-1.9985962-0.8959961-2-2v-8h14V19z M17,10H3V9c0.0014038-1.1040039,0.8959961-1.9985962,2-2h10c1.1040039,0.0014038,1.9985962,0.8959961,2,2V10z M21,15c-0.0014038,1.1040039-0.8959961,1.9985962-2,2h-1V9c-0.0008545-0.7719116-0.3010864-1.4684448-0.7803345-2H21V15z M21,6H7V5c0.0014038-1.1040039,0.8959961-1.9985962,2-2h10c1.1040039,0.0014038,1.9985962,0.8959961,2,2V6z"/></svg>
+										<span class="side-menu__label">Quản Lý Đơn Hàng</span><i class="angle fa fa-angle-right"></i></a>
+									<ul class="slide-menu">
+										<li class="side-menu-label1"><a href="#"></a></li>
+                                        <li><a href="{{route('hoa-don.danh-sach')}}" class="slide-item">Danh Sách Hóa Đơn</a></li>									</ul>
 								</li>
 								<li class="slide">
 									<a class="side-menu__item has-link" data-bs-toggle="slide" href="landing.html" target="_blank">
@@ -546,7 +554,7 @@
 							</div>
 						</div>
 					</div>
-                    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <main class="col-md-9 ms-sm-auto col-lg-9 px-md-4">
                     @yield('content')
                     </main>
 				</div>
