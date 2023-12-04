@@ -5,13 +5,10 @@ use App\Http\Controllers\NhanVienController;
 use App\Http\Controllers\NguoiDungController;
 use App\Http\Controllers\ThuocTinhSanPhamController;
 use App\Http\Controllers\SanPhamController;
-<<<<<<< HEAD
 // <<<<<<< HEAD
 use App\Http\Controllers\QuanLyController;
 
 // =======
-=======
->>>>>>> 630999a5b6b27ad27a796ddc4d7bd3f5b06a670f
 use App\Http\Controllers\HoaDonController;
 /*
 |--------------------------------------------------------------------------
