@@ -6,6 +6,9 @@ use App\Http\Controllers\NguoiDungController;
 use App\Http\Controllers\ThuocTinhSanPhamController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Controllers\HoaDonController;
+use App\Http\Controllers\PhieuNhapController;
+use App\Http\Controllers\PhieuXuatController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,3 +62,22 @@ Route::get('hoadon/them-moi',[HoaDonController::class,'create'])->name('hoa-don.
 Route::post('hoadon/them-moi',[HoaDonController::class,'xulithemmoi'])->name('hoa-don.xl-them-moi');
 Route::get('hoadon/danh-sach',[HoaDonController::class,'index'])->name('hoa-don.danh-sach');
 Route::get('hoadon/xoa/{id}',[HoaDonController::class,'destroy'])->name('hoa-don.xoa');
+Route::get('hoadon/cap-nhat/{id}',[HoaDonController::class,'update'])->name('hoa-don.cap-nhat');
+Route::post('hoadon/cap-nhat/{id}',[HoaDonController::class,'xulicapnhat'])->name('hoa-don.xl-cap-nhat');
+
+//Phiếu Nhập
+Route::get('phieunhap/them-moi',[PhieuNhapController::class,'create'])->name('phieu-nhap.them-moi');
+Route::post('phieunhap/them-moi',[PhieuNhapController::class,'xulithemmoi'])->name('phieu-nhap.xl-them-moi');
+Route::get('phieunhap/danh-sach',[PhieuNhapController::class,'index'])->name('phieu-nhap.danh-sach');
+Route::get('phieunhap/xoa/{id}',[PhieuNhapController::class,'destroy'])->name('phieu-nhap.xoa');
+Route::get('phieunhap/cap-nhat/{id}',[PhieuNhapController::class,'update'])->name('phieu-nhap.cap-nhat');
+Route::post('phieunhap/cap-nhat/{id}',[PhieuNhapController::class,'xulicapnhat'])->name('phieu-nhap.xl-cap-nhat');
+
+
+//Phiếu Xuất
+Route::get('phieuxuat/them-moi',[PhieuXuatController::class,'create'])->name('phieu-xuat.them-moi');
+Route::post('phieuxuat/them-moi',[PhieuXuatController::class,'xulithemmoi'])->name('phieu-xuat.xl-them-moi');
+Route::get('phieuxuat/danh-sach',[PhieuXuatController::class,'index'])->name('phieu-xuat.danh-sach');
+Route::get('phieuxuat/xoa/{id}',[PhieuXuatController::class,'destroy'])->name('phieu-xuat.xoa');
+Route::get('phieuxuat/cap-nhat/{id}',[PhieuXuatController::class,'update'])->name('phieu-xuat.cap-nhat');
+Route::post('phieuxuat/cap-nhat/{id}',[PhieuXuatController::class,'xulicapnhat'])->name('phieu-xuat.xl-cap-nhat');

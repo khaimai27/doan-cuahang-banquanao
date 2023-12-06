@@ -13,4 +13,8 @@ class HoaDon extends Model
     {
         return $this->beLongsTo(NhanVien::class,'nhan_vien_id'); 
     }
+    public function san_pham()
+    {
+        return $this->beLongsTo(SanPham::class,'san_pham_id'); 
+    }
 }
