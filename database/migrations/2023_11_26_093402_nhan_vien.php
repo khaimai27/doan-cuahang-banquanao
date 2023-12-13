@@ -19,7 +19,11 @@ return new class extends Migration
             $table->bigInteger('so_dien_thoai'); 
             $table->string('dia_chi');
             $table->string('email');
+            $table->unsignedBigInteger('hinh_anh_id')->nullable();
             $table->timestamps(); 
+        });
+        Schema::table('nhan_vien', function (Blueprint $table) {
+            $table->foreign('hinh_anh_id')->references('id')->on('hinh_anh')->onDelete('set null');
         });
     }
 

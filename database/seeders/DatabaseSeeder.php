@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             SizeSeeder::class,
             MauSacSeeder::class,
             DanhMucSeeder::class,
-            ThemNguoiDungSeeder::class,
+            AnhAdminSeeder::class,
+            AnhSPSeeder::class,
             ThemNhanVienSeeder::class,
         ]);
     }
